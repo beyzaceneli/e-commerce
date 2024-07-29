@@ -9,6 +9,7 @@ import { RouterModule } from '@angular/router';
 import { ButtonComponent } from './button/button.component';
 import { SortingButtonComponent } from './sorting-button/sorting-button.component';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
     CommonModule,
     MatToolbarModule,
     RouterModule,
-    NgbDropdownModule
+    NgbDropdownModule,
+    NgbModule
   ],
   exports:[
     HeaderComponent,

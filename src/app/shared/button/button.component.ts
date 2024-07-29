@@ -20,11 +20,10 @@ export class ButtonComponent {
     if (this.cartService.isInCart(this.product)) {
       this.cartService.removeFromCart(this.product);
       this.product.inCart = false; // product.inCart özelliğini güncelle
-      alert('Removed from basket');
     } else {
       this.cartService.addToCart(this.product);
       this.product.inCart = true; // product.inCart özelliğini güncelle
-      alert('Added to basket');
+
     }
     this.buttonClick.emit(this.product); // Product nesnesini emit et
   }

@@ -18,4 +18,9 @@ export class CartComponent {
       console.log(this.items)
     });
   }
+
+  handleButtonClick(event: any) {
+    // Sepete ekleme veya çıkarma işlemini burada gerçekleştirin
+    console.log('Button clicked:', event);
+  }
 }
