@@ -1,23 +1,26 @@
-<mat-toolbar color="primary">
-  <span>E-Commerce</span>
-  <span class="example-spacer"></span>
-  <nav class="navbar navbar-expand-lg">
-    <div class="container-fluid">
-      <div class="collapse navbar-collapse">
-        <ul class="nav">
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" >Anasayfa</a>
+<ng-container>
+  <mat-toolbar color="primary">
+    <span>E-Commerce</span>
+    <span class="example-spacer"></span>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <div class="collapse navbar-collapse">
+          <ul class="nav">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" >Anasayfa</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/contact" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">İletişim</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/cart" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                  Checkout
+              </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/contact" routerLinkActive="active">İletişim</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/cart" routerLinkActive="active">
-                Checkout
-            </a>
-        </li>
-        </ul>
+          </ul>
+        </div>
       </div>
-    </div>
-  </nav>
-</mat-toolbar>
+    </nav>
+  </mat-toolbar>
+  
+</ng-container>

@@ -1,1 +1,18 @@
-<p>cart works!</p>
+<div class="container p-2">
+    <h2 class="text-primary">MY CART</h2>
+    
+    <div class="card mb-3" style="max-width: 540px;" *ngFor="let item of items">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img [src]="item.images || 'assets/images/default-product-image.png'" class="img-fluid rounded-start"
+            alt="Photo of a Shiba Inu">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">{{item.title}}</h5>
+           
+            <span class="h4 text-danger">{{ item.price | currency: 'TRY' }}</span>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -7,6 +7,8 @@ import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.compo
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
 import { ButtonComponent } from './button/button.component';
+import { SortingButtonComponent } from './sorting-button/sorting-button.component';
+import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -14,19 +16,22 @@ import { ButtonComponent } from './button/button.component';
     FooterComponent,
     AlertComponent,
     LoadingSpinnerComponent,
-    ButtonComponent
+    ButtonComponent,
+    SortingButtonComponent
   ],
   imports: [
     CommonModule,
     MatToolbarModule,
-    RouterModule
+    RouterModule,
+    NgbDropdownModule
   ],
   exports:[
     HeaderComponent,
     FooterComponent,
     AlertComponent,
     LoadingSpinnerComponent,
-    ButtonComponent
+    ButtonComponent,
+    SortingButtonComponent
   ]
 })
 export class SharedModule { }

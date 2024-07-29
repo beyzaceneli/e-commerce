@@ -1,4 +1,7 @@
-import { Component,Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { CartService } from 'src/app/services/cart.service';
+import { Product } from 'src/app/models/product.model';
 
 @Component({
   selector: 'app-button',
@@ -8,9 +11,21 @@ import { Component,Input, Output, EventEmitter } from '@angular/core';
 export class ButtonComponent {
   @Input() label!: string;
   @Input() action!: 'Add Basket' | 'Remove';
-  @Output() buttonClick = new EventEmitter<void>();
+  @Input() product!: Product;
+  @Output() buttonClick = new EventEmitter<Product>();
 
-  onClick(): void {
-    this.buttonClick.emit();
+  constructor(private cartService: CartService) { }
+
+  toggleCart(): void {
+    if (this.cartService.isInCart(this.product)) {
+      this.cartService.removeFromCart(this.product);
+      this.product.inCart = false; // product.inCart özelliğini güncelle
+      alert('Removed from basket');
+    } else {
+      this.cartService.addToCart(this.product);
+      this.product.inCart = true; // product.inCart özelliğini güncelle
+      alert('Added to basket');
+    }
+    this.buttonClick.emit(this.product); // Product nesnesini emit et
   }
 }

@@ -1,0 +1,10 @@
+<div ngbDropdown class="d-inline-block">
+    <button type="button" class="btn btn-outline-primary" ngbDropdownToggle>
+        Display
+    </button>
+    <div ngbDropdownMenu>
+        <button ngbDropdownItem (click)="onSortChange('default')" [class.active]="currentSort === 'default'">Default</button>
+        <button ngbDropdownItem (click)="onSortChange('lowToHigh')" [class.active]="currentSort === 'lowest'">En Düşük Fiyat</button>
+        <button ngbDropdownItem (click)="onSortChange('highToLow')" [class.active]="currentSort === 'highest'">En Yüksek Fiyat</button>
+    </div>
+</div>

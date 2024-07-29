@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CartComponent } from './cart.component';
-import { ProductModule } from "../product/product.module";
-import { SharedModule } from '../shared/shared.module';
-
+import { CartRoutingModule } from './cart-routing.module';
 
 @NgModule({
   declarations: [
@@ -11,8 +9,7 @@ import { SharedModule } from '../shared/shared.module';
   ],
   imports: [
     CommonModule,
-    ProductModule,
-    SharedModule
-]
+    CartRoutingModule
+  ]
 })
 export class CartModule { }

@@ -1,7 +1,12 @@
 <div *ngIf="isLoading">
   <!--buraya loaidng spinner gelecek-->
 </div>
-
+<ng-container>
+  <div class="d-flex justify-content-between">
+    <h1 class="display-2 text-primary fs-2">Product List</h1>
+<app-sorting-button (sortChanged)="onSortChanged($event)"></app-sorting-button>
+  </div>
+</ng-container>
   <div class="row mt-5">
     <div *ngFor="let product of products" class="col-lg-3 col-md-4 col-sm-6 col-12 mb-4">
       <app-product-card [product]="product"></app-product-card>

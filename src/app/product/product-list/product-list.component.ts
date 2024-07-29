@@ -16,7 +16,25 @@ export class ProductListComponent {
     this.productService.getProducts().subscribe(products => {
       this.products = products;
       this.isLoading = false;
+      this.sortProducts('default');
       console.log(this.products)
     });
+  }
+  sortedProducts = [...this.products];
+
+
+
+  onSortChanged(sortType: string) {
+    this.sortProducts(sortType);
+  }
+
+  sortProducts(sortType: string) {
+    if (sortType === 'lowest') {
+      this.sortedProducts = [...this.products].sort((a, b) => a.price - b.price);
+    } else if (sortType === 'highest') {
+      this.sortedProducts = [...this.products].sort((a, b) => b.price - a.price);
+    } else {
+      this.sortedProducts = [...this.products];
+    }
   }
 }

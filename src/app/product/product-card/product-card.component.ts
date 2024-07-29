@@ -1,6 +1,7 @@
 import { Component,Input } from '@angular/core';
 import { Product } from 'src/app/models/product.model';
 import { CartService } from 'src/app/services/cart.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-product-card',
@@ -10,19 +11,11 @@ import { CartService } from 'src/app/services/cart.service';
 export class ProductCardComponent {
 @Input() product!: Product;
 
-  constructor(private cartService: CartService) { }
+  constructor(private cartService: CartService, private route: ActivatedRoute,) { }
 
-  // onButtonClick(): void {
-  //   if (this.product.inCart) {
-  //     this.cartService.removeProductFromCart(this.product.id);
-  //     this.product.inCart = false;
-  //   } else {
-  //     this.cartService.addProductToCart(this.product);
-  //     this.product.inCart = true;  
-  //   }
-  // }
-
-  get isOutline(): boolean {
-    return !!this.product.inCart; // boolean dönüş sağlar
+  handleButtonClick(event: any): void {
+   
+    console.log('Button clicked', event);
   }
+
 }
