@@ -1,0 +1,13 @@
+<div class="card">
+  <img class="card-img-top" [src]="product.thumbnail || 'assets/images/default-product-image.png'" alt="Product Image">
+  <hr>
+  <div class="card-body">
+    <a class="card-title fs-6 card-product-title">{{ product.title }}</a>
+    <div class="d-flex justify-content-between align-items-center mt-5">
+      <span class="h4 text-danger">{{ product.price | currency: 'TRY' }}</span>
+      <app-button
+        [label]="product.inCart ? 'Remove from basket' : 'Add to basket'">
+      </app-button>
+    </div>
+  </div>
+</div>

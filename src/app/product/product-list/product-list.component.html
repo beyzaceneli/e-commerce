@@ -1,0 +1,10 @@
+<div *ngIf="isLoading">
+  <!--buraya loaidng spinner gelecek-->
+</div>
+
+  <div class="row mt-5">
+    <div *ngFor="let product of products" class="col-lg-3 col-md-4 col-sm-6 col-12 mb-4">
+      <app-product-card [product]="product"></app-product-card>
+    </div>
+  </div>
+

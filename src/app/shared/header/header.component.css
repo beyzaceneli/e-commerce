@@ -1,0 +1,14 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+.nav li a {
+  color: #fff;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+.nav li a:hover {
+  opacity: 1;
+}
+.nav li a.active {
+  opacity: 1;
+}
