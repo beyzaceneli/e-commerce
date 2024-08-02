@@ -1,10 +1,10 @@
 <div ngbDropdown class="d-inline-block">
-    <button type="button" class="btn btn-outline-primary" ngbDropdownToggle>
-        Display
+    <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>
+      {{ currentSortLabel }}
     </button>
-    <div ngbDropdownMenu>
-        <button ngbDropdownItem (click)="onSortChange('default')" [class.active]="currentSort === 'default'">Default</button>
-        <button ngbDropdownItem (click)="onSortChange('lowToHigh')" [class.active]="currentSort === 'lowest'">En Düşük Fiyat</button>
-        <button ngbDropdownItem (click)="onSortChange('highToLow')" [class.active]="currentSort === 'highest'">En Yüksek Fiyat</button>
+    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+      <button ngbDropdownItem (click)="sort('default')">Varsayılan Sıralama</button>
+      <button ngbDropdownItem (click)="sort('lowest')">En Düşük Fiyat</button>
+      <button ngbDropdownItem (click)="sort('highest')">En Yüksek Fiyat</button>
     </div>
-</div>
+  </div>

@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Product } from 'src/app/models/product.model';
 import { CartService } from 'src/app/services/cart.service';
-import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AlertComponent } from 'src/app/shared/alert/alert.component';
 
@@ -13,20 +13,21 @@ import { AlertComponent } from 'src/app/shared/alert/alert.component';
 export class ProductCardComponent {
   @Input() product!: Product;
 
-  constructor(private cartService: CartService,
-    private route: ActivatedRoute,
-    private modalService: NgbModal
-  ) { }
+  constructor(private cartService: CartService, private router: Router,) {}
 
-  handleButtonClick(product:Product) {
-    const modalRef = this.modalService.open(AlertComponent);
-    if (this.cartService.isInCart(product)) {
-      this.cartService.removeFromCart(product);
-      modalRef.componentInstance.message = 'Ürün sepetten kaldırıldı';
+  isInCart(): boolean {
+    return this.cartService.isInCart(this.product.id);
+  }
+
+  toggleCart() {
+    if (this.isInCart()) {
+      this.cartService.removeFromCart(this.product.id);
     } else {
-      this.cartService.addToCart(product);
-      modalRef.componentInstance.message = 'Ürün sepete eklendi';
+      this.cartService.addToCart(this.product);
     }
   }
 
+  onProductClick() {
+    this.router.navigate(['/product-detail', this.product.id]);
+  }
 }

@@ -10,17 +10,12 @@ import { CartService } from '../services/cart.service';
 export class CartComponent {
 
   items: Product[] = [];
-  constructor(private cartService:CartService) { }
 
-  ngOnInit(): void {
-    this.cartService.items$.subscribe(items => {
+  constructor(private cartService: CartService) {}
+
+  ngOnInit() {
+    this.cartService.items$.subscribe((items: Product[]) => {
       this.items = items;
-      console.log(this.items)
     });
-  }
-
-  handleButtonClick(event: any) {
-    // Sepete ekleme veya çıkarma işlemini burada gerçekleştirin
-    console.log('Button clicked:', event);
   }
 }

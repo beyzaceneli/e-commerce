@@ -6,43 +6,21 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class CartService {
+  private cart: Product[] = [];
+  private cartSubject = new BehaviorSubject<Product[]>(this.cart);
+  items$ = this.cartSubject.asObservable();
 
-
-  private itemsSubject = new BehaviorSubject<Product[]>([]);
-  items$ = this.itemsSubject.asObservable();
-  private cartItemCount = new BehaviorSubject<number>(0);
-  cartItemCount$ = this.cartItemCount.asObservable();
-
-  constructor() { }
-
+  isInCart(productId: number): boolean {
+    return this.cart.some(item => item.id === productId);
+  }
 
   addToCart(product: Product) {
-    const currentItems = this.itemsSubject.value;
-    this.itemsSubject.next([...currentItems, product]);
-    let currentCount = this.cartItemCount.value;
-    this.cartItemCount.next(currentCount + 1);
+    this.cart.push(product);
+    this.cartSubject.next(this.cart);
   }
 
-
-  getItems() {
-    return this.itemsSubject.value;
-  }
- 
-
-  removeFromCart(product: Product) {
-    const currentItems = this.itemsSubject.value;
-    const updatedItems = currentItems.filter(item => item.id !== product.id);
-    this.itemsSubject.next(updatedItems);
-  }
-
-
-
-
-  isInCart(product: Product): boolean {
-    return this.itemsSubject.value.some(item => item.id === product.id);
-  }
-
-  updateCartItemCount(count: number) {
-    this.cartItemCount.next(count);
+  removeFromCart(productId: number) {
+    this.cart = this.cart.filter(item => item.id !== productId);
+    this.cartSubject.next(this.cart);
   }
 }

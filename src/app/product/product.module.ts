@@ -4,22 +4,36 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductCardComponent } from './product-card/product-card.component';
 import { SharedModule } from '../shared/shared.module';
-
+import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
+import { RouterModule, Routes } from '@angular/router';
+import { NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
+import { ProductReviewsComponent } from './product-reviews/product-reviews.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+const routes: Routes = [
+  { path: 'product-detail/:id', component: ProductDetailComponent },
+];
 
 @NgModule({
   declarations: [
     ProductDetailComponent,
     ProductListComponent,
-    ProductCardComponent
+    ProductCardComponent,
+    ProductReviewsComponent,
   ],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    NgbDropdownModule,
+    NgbRatingModule,
+    MatProgressSpinnerModule,
+    RouterModule.forChild(routes),
+    InfiniteScrollModule
   ],
   exports:[
     ProductCardComponent,
     ProductDetailComponent,
-    ProductListComponent
+    ProductListComponent,
   ]
 })
 export class ProductModule { }

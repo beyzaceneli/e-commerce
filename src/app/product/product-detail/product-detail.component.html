@@ -1,1 +1,60 @@
-<p>product-detail works!</p>
+<!-- src/app/product-detail/product-detail.component.html -->
+
+<div class="container py-4">
+    <div class="row">
+      <!-- Loading Spinner -->
+      <div class="spinner-container" *ngIf="isLoading">
+        <mat-spinner></mat-spinner>
+      </div>
+      
+      <!-- Product Details -->
+      <ng-container *ngIf="!isLoading && product" class="product-detail">
+        <div class="col-md-6">
+          <img class="card-img-top img-thumbnail" [src]="product.thumbnail || 'assets/images/default-product-image.png'" alt="{{ product.title }}">
+        </div>
+        <div class="col-md-6">
+          <h5 class="fs-2">{{ product.title }}</h5>
+          <div class="d-flex justify-content-between w-25">
+            <ngb-rating [(rate)]="rating" [readonly]="readonly"></ngb-rating>
+          </div>
+          <app-product-reviews [reviews]="reviews" [readonly]="readonly"></app-product-reviews>
+          <p><b>Category:</b> {{ product.category }}</p>
+          <p><b>Description:</b> {{ product.description }}</p>
+          <div class="d-flex justify-content-between mt-3">
+            <span class="h4 text-danger">{{ product.price | currency: 'TRY' }}</span>
+            <app-button [product]="product"></app-button>
+          </div>
+        </div>
+      </ng-container>
+  
+      <!-- Product Images -->
+      <ng-container *ngIf="!isLoading && product">
+        <div class="row mt-4">
+          <div class="col-md-2" *ngFor="let image of product.images; let i = index">
+            <img class="card-img-top img-thumbnail" [src]="image || 'assets/images/default-product-image.png'" alt="{{ product.title }} - Image {{ i + 1 }}">
+          </div>
+        </div>
+      </ng-container>
+  
+      <!-- Related Products -->
+      <div *ngIf="!isLoading && relatedProducts.length > 0" class="col-12">
+        <h2>Related Products</h2>
+        <div class="row">
+          <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-4" *ngFor="let relatedProduct of relatedProducts">
+            <app-product-card [product]="relatedProduct"></app-product-card>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Loading Product Details -->
+      <div class="col-md-12" *ngIf="!product && !errorMessage && !isLoading">
+        <p>Loading product details...</p>
+      </div>
+  
+      <!-- Error Message -->
+      <div class="col-md-12" *ngIf="errorMessage">
+        <p class="text-danger">Error: {{ errorMessage }}</p>
+      </div>
+    </div>
+  </div>
+  

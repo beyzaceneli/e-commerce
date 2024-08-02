@@ -6,12 +6,24 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./sorting-button.component.css']
 })
 export class SortingButtonComponent {
-  @Output() sortChanged = new EventEmitter<string>();
+  @Output() sortChange = new EventEmitter<string>();
+  
+  currentSortLabel = 'Sıralama Seçin';
 
-  currentSort: string = 'default';
-
-  onSortChange(sortType: string) {
-    this.currentSort = sortType;
-    this.sortChanged.emit(this.currentSort);
+  sort(type: 'default' | 'lowest' | 'highest') {
+    console.log('SortingButtonComponent: sort called with type:', type);
+    this.sortChange.emit(type);
+    switch(type) {
+      case 'default':
+        this.currentSortLabel = 'Varsayılan Sıralama';
+        break;
+      case 'lowest':
+        this.currentSortLabel = 'En Düşük Fiyat';
+        break;
+      case 'highest':
+        this.currentSortLabel = 'En Yüksek Fiyat';
+        break;
+    }
+    console.log('SortingButtonComponent: currentSortLabel updated to:', this.currentSortLabel);
   }
 }

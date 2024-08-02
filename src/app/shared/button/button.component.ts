@@ -1,7 +1,10 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { CartService } from 'src/app/services/cart.service';
 import { Product } from 'src/app/models/product.model';
+import { ActivatedRoute } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { AlertComponent } from 'src/app/shared/alert/alert.component';
+
 
 @Component({
   selector: 'app-button',
@@ -9,22 +12,22 @@ import { Product } from 'src/app/models/product.model';
   styleUrls: ['./button.component.css']
 })
 export class ButtonComponent {
-  @Input() label!: string;
-  @Input() action!: 'Add Basket' | 'Remove';
   @Input() product!: Product;
-  @Output() buttonClick = new EventEmitter<Product>();
 
-  constructor(private cartService: CartService) { }
+  constructor(private cartService: CartService, private modalService:NgbModal) {}
 
-  toggleCart(): void {
-    if (this.cartService.isInCart(this.product)) {
-      this.cartService.removeFromCart(this.product);
-      this.product.inCart = false; // product.inCart özelliğini güncelle
+  isInCart(): boolean {
+    return this.cartService.isInCart(this.product.id);
+  }
+
+  toggleCart() {
+    const modalRef = this.modalService.open(AlertComponent);
+    if (this.isInCart()) {
+      this.cartService.removeFromCart(this.product.id);
+      modalRef.componentInstance.message = 'Ürün sepetten kaldırıldı';
     } else {
       this.cartService.addToCart(this.product);
-      this.product.inCart = true; // product.inCart özelliğini güncelle
-
+      modalRef.componentInstance.message = 'Ürün sepete eklendi';
     }
-    this.buttonClick.emit(this.product); // Product nesnesini emit et
   }
 }

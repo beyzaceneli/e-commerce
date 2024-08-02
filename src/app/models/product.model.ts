@@ -5,10 +5,15 @@ export interface Product {
   thumbnail: string[];
   images:string[];
   inCart?: boolean;
-}
-
-export interface ProductDetail extends Product {
-  rating: number;
   description: string;
   category: string;
+  rating?: number;
+  reviews?: Review[];
+}
+
+export interface Review {
+  reviewerName: string;
+  reviewerEmail: string;
+  comment: string;
+  rating: number;
 }
