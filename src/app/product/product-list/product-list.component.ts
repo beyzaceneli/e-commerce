@@ -21,9 +21,7 @@ export class ProductListComponent {
     this.productService.getProducts().subscribe(products => {
       this.products = products;
       this.isLoading = false;
-      console.log('ProductListComponent initialized');
       this.sortedProducts = [...this.products];
-      console.log('Initial sortedProducts:', this.sortedProducts);
       console.log(this.products)
     });
     
@@ -32,7 +30,7 @@ export class ProductListComponent {
  
 
   onSortChange(sortType: string) {
-    console.log('ProductListComponent: Sort type received:', sortType);
+   
     
     switch (sortType) {
       case 'lowest':
@@ -46,7 +44,7 @@ export class ProductListComponent {
         break;
     }
     
-    console.log('ProductListComponent: Sorted products:', this.sortedProducts);
+   
     
   }
 

@@ -2,8 +2,7 @@ import { Component, Input } from '@angular/core';
 import { Product } from 'src/app/models/product.model';
 import { CartService } from 'src/app/services/cart.service';
 import { Router } from '@angular/router';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { AlertComponent } from 'src/app/shared/alert/alert.component';
+
 
 @Component({
   selector: 'app-product-card',

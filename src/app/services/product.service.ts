@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient,HttpErrorResponse } from '@angular/common/http';
-import { Observable,throwError  } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Observable} from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Product } from '../models/product.model';
-import { catchError } from 'rxjs/operators';
+
 
 
 
@@ -26,17 +26,7 @@ export class ProductService {
       map(products => products.sort((a, b) => ascending ? a.price - b.price : b.price - a.price))
     );
   }
-  private handleError(error: HttpErrorResponse) {
-    let errorMessage = 'An unknown error occurred!';
-    if (error.error instanceof ErrorEvent) {
-
-      errorMessage = `Error: ${error.error.message}`;
-    } else {
-
-      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
-    }
-    return throwError(() => new Error(errorMessage));
-  }
+ 
   getProductDetails(id: number): Observable<Product> {
     return this.http.get<Product>(`${this.apiUrl}/${id}`);
   }
