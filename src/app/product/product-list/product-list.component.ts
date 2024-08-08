@@ -12,7 +12,7 @@ export class ProductListComponent {
   products:Product[]=[];
   sortedProducts: Product[] = [];
   isLoading = true;
-  
+  currentPage = 1;
 
 
   constructor(private productService: ProductService) { }
@@ -27,7 +27,15 @@ export class ProductListComponent {
     
   }
 
- 
+  onScrollDown() {
+    this.isLoading = true;
+    this.currentPage++;
+
+    this.productService.getProducts().subscribe(products => {
+      this.sortedProducts = [...this.sortedProducts, ...products];
+      this.isLoading = false;
+    });
+  }
 
   onSortChange(sortType: string) {
    

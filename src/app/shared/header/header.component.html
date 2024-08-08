@@ -14,9 +14,12 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" routerLink="/cart" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
-                  Checkout
+                Cart
+                <span class="icon-container">
+                  <mat-icon [matBadge]="(cartItemCount$ | async) || 0" matBadgeOverlap="false">shopping_cart</mat-icon>
+                </span>
               </a>
-          </li>
+            </li>            
           </ul>
         </div>
       </div>

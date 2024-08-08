@@ -10,6 +10,7 @@ import { NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProductReviewsComponent } from './product-reviews/product-reviews.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+
 const routes: Routes = [
   { path: 'product-detail/:id', component: ProductDetailComponent },
 ];

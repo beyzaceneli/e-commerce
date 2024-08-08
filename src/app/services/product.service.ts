@@ -15,11 +15,13 @@ export class ProductService {
 
   constructor(private http: HttpClient) { }
 
-  getProducts(): Observable<Product[]> {
-    return this.http.get<{ products: Product[] }>(this.apiUrl).pipe(
+  
+  getProducts(page: number = 1): Observable<Product[]> {
+    return this.http.get<{ products: Product[] }>(`${this.apiUrl}?page=${page}`).pipe(
       map(response => response.products)
     );
   }
+  
 
   sortProductsByPrice(ascending: boolean): Observable<Product[]> {
     return this.getProducts().pipe(

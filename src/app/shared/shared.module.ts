@@ -10,6 +10,8 @@ import { ButtonComponent } from './button/button.component';
 import { SortingButtonComponent } from './sorting-button/sorting-button.component';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatIconModule } from '@angular/material/icon';
+import { MatBadgeModule } from '@angular/material/badge';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MatToolbarModule,
     RouterModule,
     NgbDropdownModule,
-    NgbModule
+    NgbModule,
+    MatIconModule,
+    MatBadgeModule
   ],
   exports:[
     HeaderComponent,

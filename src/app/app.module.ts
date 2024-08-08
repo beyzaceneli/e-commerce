@@ -9,6 +9,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { ProductModule } from './product/product.module';
+import {MatBadgeModule} from '@angular/material/badge';
+import {MatIconModule} from '@angular/material/icon';
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import { ProductModule } from './product/product.module';
     BrowserAnimationsModule,
     HttpClientModule,
     MatToolbarModule,
-    ProductModule
+    ProductModule,
+    MatBadgeModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
