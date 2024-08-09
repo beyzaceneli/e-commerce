@@ -1,7 +1,6 @@
-
-  <div class="spinner-container" *ngIf="isLoading">
-    <mat-spinner></mat-spinner>
-  </div>
+<div class="spinner-container" *ngIf="isLoading">
+  <mat-spinner></mat-spinner>
+</div>
 
 <ng-container>
   <div class="d-flex justify-content-between">
@@ -9,7 +8,8 @@
     <app-sorting-button (sortChange)="onSortChange($event)"></app-sorting-button>
   </div>
 </ng-container>
-<div class="row mt-5" infiniteScroll 
+
+<div  class="row mt-5" infiniteScroll 
 [infiniteScrollDistance]="2"
 [infiniteScrollUpDistance]="1.5"
 [infiniteScrollThrottle]="150"
@@ -20,6 +20,3 @@
   </div>
 </div>
 
-<div *ngIf="isLoading" class="loading-spinner">
-  Loading more products...
-</div>
