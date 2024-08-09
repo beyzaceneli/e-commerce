@@ -16,4 +16,5 @@ export interface Review {
   reviewerEmail: string;
   comment: string;
   rating: number;
+  
 }

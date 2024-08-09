@@ -25,7 +25,7 @@ export class ProductDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
-      const id = +params['id']; // Get the ID from the URL
+      const id = +params['id']; 
       this.productService.getProductDetails(id).subscribe(
         (data: Product) => {
           this.product = data;
@@ -36,7 +36,7 @@ export class ProductDetailComponent implements OnInit {
             this.productService.getRelatedProducts(data.category).subscribe(
               (relatedData: Product[]) => {
                 if (Array.isArray(relatedData)) {
-                  this.relatedProducts = relatedData.filter(p => p.id !== id); // Exclude the current product
+                  this.relatedProducts = relatedData.filter(p => p.id !== id); 
                 } else {
                   console.error('Related products data is not an array:', relatedData);
                 }

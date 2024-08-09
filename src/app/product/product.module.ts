@@ -11,6 +11,7 @@ import { ProductReviewsComponent } from './product-reviews/product-reviews.compo
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
+
 const routes: Routes = [
   { path: 'product-detail/:id', component: ProductDetailComponent },
 ];
@@ -29,7 +30,7 @@ const routes: Routes = [
     NgbRatingModule,
     MatProgressSpinnerModule,
     RouterModule.forChild(routes),
-    InfiniteScrollModule
+    InfiniteScrollModule,
   ],
   exports:[
     ProductCardComponent,
