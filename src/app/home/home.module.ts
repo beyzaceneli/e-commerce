@@ -4,7 +4,7 @@ import { HomeComponent } from './home.component';
 import { ProductModule } from '../product/product.module';
 import { HomeRoutingModule } from './home-routing.module';
 import { SharedModule } from '../shared/shared.module';
-
+import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -15,7 +15,8 @@ import { SharedModule } from '../shared/shared.module';
     ProductModule,
     HomeRoutingModule,
     SharedModule,
-    ProductModule
+    ProductModule,
+    NgbCarouselModule
   ]
 })
 export class HomeModule { }

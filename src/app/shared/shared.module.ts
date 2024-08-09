@@ -12,6 +12,8 @@ import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatIconModule } from '@angular/material/icon';
 import { MatBadgeModule } from '@angular/material/badge';
+import { BannerComponent } from './banner/banner.component';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { MatBadgeModule } from '@angular/material/badge';
     AlertComponent,
     LoadingSpinnerComponent,
     ButtonComponent,
-    SortingButtonComponent
+    SortingButtonComponent,
+    BannerComponent
   ],
   imports: [
     CommonModule,
@@ -37,7 +40,8 @@ import { MatBadgeModule } from '@angular/material/badge';
     AlertComponent,
     LoadingSpinnerComponent,
     ButtonComponent,
-    SortingButtonComponent
+    SortingButtonComponent,
+    BannerComponent
   ]
 })
 export class SharedModule { }
