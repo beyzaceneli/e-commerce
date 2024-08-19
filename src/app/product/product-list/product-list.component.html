@@ -9,9 +9,8 @@
   </div>
 </ng-container>
 
-<div  class="row mt-5" infiniteScroll 
+<div  class="row mt-5 search-results" infiniteScroll 
 [infiniteScrollDistance]="2"
-[infiniteScrollUpDistance]="1.5"
 [infiniteScrollThrottle]="150"
 (scrolled)="onScrollDown()"
 [scrollWindow]="false">
