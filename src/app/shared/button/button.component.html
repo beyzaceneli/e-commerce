@@ -1,3 +1,4 @@
-<button class="btn btn-primary" (click)="toggleCart()">
-  {{ isInCart() ? 'Remove from Basket' : 'Add to Basket' }}
+<button type="button" class="btn btn-primary d-flex align-items-center justify-content-center" (click)="toggleCart()">
+  <mat-icon class="me-2">shopping_cart</mat-icon>
+  {{ isInCart() ? 'Remove' : 'Add' }}
 </button>

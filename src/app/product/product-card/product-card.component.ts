@@ -12,6 +12,8 @@ import { Router } from '@angular/router';
 export class ProductCardComponent {
   @Input() product!: Product;
 
+  quantity: number = 1;
+
   constructor(private cartService: CartService, private router: Router,) {}
 
   isInCart(): boolean {
@@ -29,4 +31,6 @@ export class ProductCardComponent {
   onProductClick() {
     this.router.navigate(['/product-detail', this.product.id]);
   }
+
+
 }

@@ -2,4 +2,28 @@
     cursor: pointer;
     text-decoration: none;
     font-weight: bold;
+    overflow: hidden; 
+    white-space: nowrap;
 }
+
+.price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: red; 
+    margin-bottom: 15px;
+  }
+  .quantity-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .quantity-wrapper input {
+    width: 50px;
+    text-align: center;
+  }
+  
+  .quantity-wrapper button {
+    flex-shrink: 0;
+  }
+  
