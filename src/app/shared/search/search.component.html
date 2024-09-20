@@ -1,13 +1,18 @@
-<mat-form-field appearance="outline" class="search-field">
-  <mat-label>Search Products</mat-label>
-  <input matInput [formControl]="searchControl" placeholder="Type to search">
-  <button mat-icon-button matSuffix aria-label="Search">
-    <mat-icon>search</mat-icon>
-  </button>
+<mat-form-field appearance="outline">
+  <mat-label>Ürün Ara</mat-label>
+  <mat-icon matPrefix>search</mat-icon>
+  <input 
+    type="text" 
+    matInput 
+    [formControl]="searchControl" 
+    placeholder="Ürün adı girin" 
+    [matAutocomplete]="auto" 
+    class="custom-input">
+  <mat-autocomplete #auto="matAutocomplete">
+    <mat-option *ngFor="let product of filteredProducts" [value]="product.title">
+      {{ product.title }}
+    </mat-option>
+  </mat-autocomplete>
 </mat-form-field>
 
-<div *ngIf="searchResults$ | async as results">
-  <div *ngFor="let product of results">
-    <p>{{ product.name }}</p>
-  </div>
-</div>
+

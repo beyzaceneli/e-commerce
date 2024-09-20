@@ -2,7 +2,7 @@ import { Component,OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { debounceTime, switchMap } from 'rxjs/operators';
 import { ProductService } from 'src/app/services/product.service';
-import { Observable } from 'rxjs';
+import { distinctUntilChanged } from 'rxjs/operators';
 
 
 @Component({
@@ -11,16 +11,18 @@ import { Observable } from 'rxjs';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent {
-  searchControl = new FormControl('');
-  searchResults$!: Observable<any[]>;
+  searchControl = new FormControl();
+  filteredProducts: any[] = [];
 
-  constructor(private productService: ProductService) {}
-
-  ngOnInit(): void {
-    this.searchResults$ = this.searchControl.valueChanges.pipe(
-      debounceTime(300), // Kullanıcı yazmayı durdurduktan sonra 300ms bekle
-      switchMap(searchTerm => this.productService.searchProducts(searchTerm ?? ''))
-
-    );
+  constructor(private productService: ProductService) {
+    this.searchControl.valueChanges
+      .pipe(
+        debounceTime(300),
+        distinctUntilChanged(),
+        switchMap((query) => this.productService.searchProducts(query))
+      )
+      .subscribe((response) => {
+        this.filteredProducts = response.products;
+      });
   }
 }

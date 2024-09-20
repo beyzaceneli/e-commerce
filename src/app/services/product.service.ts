@@ -11,7 +11,8 @@ import { Product } from '../models/product.model';
   providedIn: 'root'
 })
 export class ProductService {
-  private apiUrl = 'https://dummyjson.com/product/search?q=';
+  private apiUrl = 'https://dummyjson.com/product';
+  private searchUrl='https://dummyjson.com/products/search?q='
 
   constructor(private http: HttpClient) { }
 
@@ -49,6 +50,6 @@ export class ProductService {
   }
 
   searchProducts(query: string): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}${query}`);
+    return this.http.get<any>(`${this.searchUrl}${query}`);
   }
 }

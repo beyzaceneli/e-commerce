@@ -17,7 +17,7 @@ import { SearchComponent } from './search/search.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 
 @NgModule({
@@ -41,7 +41,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatBadgeModule,
     MatFormFieldModule,
     MatInputModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatAutocompleteModule
   ],
   exports:[
     HeaderComponent,
