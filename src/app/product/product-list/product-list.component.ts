@@ -22,21 +22,21 @@ export class ProductListComponent {
       this.products = products;
       this.isLoading = false;
       this.sortedProducts = [...this.products];
-      console.log(this.products)
+
     });
-    
+
   }
 
   onScrollDown() {
     if (this.ngxScrollActive && !this.isLoading) {
-     
+
       this.isLoading = true;
       this.currentPage++;
 
       this.productService.getProducts(this.currentPage).subscribe(products => {
         this.sortedProducts = [...this.sortedProducts, ...products];
         this.isLoading = false;
-        
+
         // this.toggleScroll();
       }, error => {
         console.error('Ürünler yüklenirken hata oluştu', error);
@@ -49,10 +49,10 @@ export class ProductListComponent {
     this.ngxScrollActive = !this.ngxScrollActive;
     console.log('Infinite scroll aktif durumu: ', this.ngxScrollActive);
   }
-  
+
   onSortChange(sortType: string) {
-   
-    
+
+
     switch (sortType) {
       case 'lowest':
         this.sortedProducts = [...this.products].sort((a, b) => a.price - b.price);
@@ -64,9 +64,9 @@ export class ProductListComponent {
         this.sortedProducts = [...this.products];
         break;
     }
-    
-   
-    
+
+
+
   }
 
 }

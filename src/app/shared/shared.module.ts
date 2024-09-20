@@ -13,6 +13,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatIconModule } from '@angular/material/icon';
 import { MatBadgeModule } from '@angular/material/badge';
 import { BannerComponent } from './banner/banner.component';
+import { SearchComponent } from './search/search.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 
 @NgModule({
@@ -23,7 +28,8 @@ import { BannerComponent } from './banner/banner.component';
     LoadingSpinnerComponent,
     ButtonComponent,
     SortingButtonComponent,
-    BannerComponent
+    BannerComponent,
+    SearchComponent
   ],
   imports: [
     CommonModule,
@@ -32,7 +38,10 @@ import { BannerComponent } from './banner/banner.component';
     NgbDropdownModule,
     NgbModule,
     MatIconModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule
   ],
   exports:[
     HeaderComponent,
