@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable,catchError} from 'rxjs';
+import { Observable} from 'rxjs';
 import { map,tap } from 'rxjs/operators';
 import { Product } from '../models/product.model';
 
@@ -23,10 +23,7 @@ export class ProductService {
         console.log('success:', page, response.products);
       }),
       map(response => response.products),
-      catchError((error) => {
-        console.error('Error:', error);
-        return [];
-      })
+
     );
   }
 

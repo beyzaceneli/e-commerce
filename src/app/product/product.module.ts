@@ -9,7 +9,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProductReviewsComponent } from './product-reviews/product-reviews.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+
 
 
 const routes: Routes = [
@@ -30,7 +30,7 @@ const routes: Routes = [
     NgbRatingModule,
     MatProgressSpinnerModule,
     RouterModule.forChild(routes),
-    InfiniteScrollModule,
+
   ],
   exports:[
     ProductCardComponent,

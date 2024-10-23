@@ -9,11 +9,7 @@
   </div>
 </ng-container>
 
-<div  class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3 mt-5 search-results" infiniteScroll 
-[infiniteScrollDistance]="2"
-[infiniteScrollThrottle]="150"
-(scrolled)="onScrollDown()"
-[scrollWindow]="false">
+<div  class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3 mt-5 search-results">
   <div *ngFor="let product of sortedProducts" class=" col">
     <app-product-card [product]="product"></app-product-card>
   </div>
