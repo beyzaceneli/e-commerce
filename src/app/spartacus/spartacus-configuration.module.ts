@@ -10,7 +10,7 @@ import { defaultCmsContentProviders, layoutConfig, mediaConfig } from "@spartacu
   providers: [provideConfig(layoutConfig), provideConfig(mediaConfig), ...defaultCmsContentProviders, provideConfig(<OccConfig>{
     backend: {
       occ: {
-        baseUrl: 'https://localhost:9002',
+        baseUrl: 'https://playground-api.ndbs.online',
       }
     },
   }), provideConfig(<SiteContextConfig>{
